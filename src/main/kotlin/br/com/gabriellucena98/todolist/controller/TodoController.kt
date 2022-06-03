@@ -24,7 +24,7 @@ class TodoController(
         return todoService.getAll().map { TodoConverter.toDTO(it) }
     }
 
-    @PostMapping("/add")
+    @PostMapping
     fun createTodo(@RequestBody todoDTO: TodoDTO): TodoDTO {
 //        val todo = TodoConverter.toDomain(todoDTO)
 //        return todoService.createTodo(todo).let { TodoConverter.toDTO(it) }
