@@ -25,11 +25,11 @@ class TodoController(
     }
 
     @PostMapping("/add")
-    fun createTodo(@RequestBody todoDTO: TodoDTO): TodoDTO {
+    fun createTodo(@RequestBody todoDTO: TodoDTO) {
 //        val todo = TodoConverter.toDomain(todoDTO)
 //        return todoService.createTodo(todo).let { TodoConverter.toDTO(it) }
 //        return todoDTO.let { TodoConverter.toDomain(it) }.let { todoService.createTodo(it) }.let { TodoConverter.toDTO(it) }
-        return TodoConverter.toDTO(todoService.createTodo(TodoConverter.toDomain(todoDTO)))
+        todoService.createTodo(TodoConverter.toDomain(todoDTO))
     }
 
     @PutMapping("/{id}")

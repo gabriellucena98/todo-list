@@ -19,7 +19,6 @@ class TodoRepository(
     private val INSERT_TODO = """
         INSERT INTO todo (id, name, done)
         VALUES (gen_random_uuid(), :name, false)
-        RETURNING *
     """.trimIndent()
     private val UPDATE_TODO = """
         UPDATE todo SET name = :name, done = :done WHERE id = :id
@@ -30,11 +29,11 @@ class TodoRepository(
         return namedParameterJdbcTemplate.query(SELECT_ALL_TODOS, TodoMapper() )
     }
 
-    fun createTodo(todo: Todo): Todo{
+    fun createTodo(todo: Todo) {
         val params = mapOf(
             "name" to todo.name
         )
-        return namedParameterJdbcTemplate.query(INSERT_TODO, params, TodoMapper()).first()
+        namedParameterJdbcTemplate.query(INSERT_TODO, params, TodoMapper()).first()
     }
 
     fun editTodo(todo: Todo): Todo{
