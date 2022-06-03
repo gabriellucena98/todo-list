@@ -14,8 +14,8 @@ class TodoService(
         return todoRepository.getAll()
     }
 
-    fun createTodo(todo: Todo) {
-        todoRepository.createTodo(todo)
+    fun createTodo(todo: Todo): Todo{
+        return todoRepository.createTodo(todo)
     }
 
     fun editTodo(todo: Todo): Todo {
