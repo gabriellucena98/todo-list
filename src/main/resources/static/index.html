@@ -3,14 +3,12 @@
 <h1>Todolist</h1>
 
 <form action="/todo" method="get" autocomplete="on">
-    <label for="id">ID:</label><br>
-    <input type="text" id="id" name="id" value=""><br><br>
-    <label for="name">ASSIGNMENT:</label><br>
-    <input type="text" id="name" name="name" value=""><br><br>
+
+
     <input type="submit" value="List">
 
 
-        <input type="submit" value="Add">
+
 
 
         <input type="submit" value="Change">
@@ -18,6 +16,14 @@
 
         <input type="submit" value="Delete">
     </form>
+
+<form action="/todo" method="post">
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id" value=""><br><br>
+    <label for="name">ASSIGNMENT:</label><br>
+    <input type="text" id="name" name="name" value=""><br><br>
+    <input type="submit" value="Add">
+</form>
 
             <p>ID is only needed to change and delete.</p>
 
