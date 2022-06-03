@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html>
-<body>
 
 <h1>Todolist</h1>
 
-<form action="/todo" autocomplete="on">
+<form action="/todo" method="get" autocomplete="on">
     <label for="id">ID:</label><br>
     <input type="text" id="id" name="id" value=""><br><br>
     <label for="name">ASSIGNMENT:</label><br>
     <input type="text" id="name" name="name" value=""><br><br>
     <input type="submit" value="List">
 
-<form action="/todo" method="post">
-     <input type="submit" value="Add">
 
-<form action="/todo/{id}" method="put">
-      <input type="submit" value="Change">
+        <input type="submit" value="Add">
 
-<form action="/todo/{id}" method="delete">
-       <input type="submit" value="Delete">
-</form>
 
-<p>ID is only needed to change and delete.</p>
+        <input type="submit" value="Change">
+
+
+        <input type="submit" value="Delete">
+    </form>
+
+            <p>ID is only needed to change and delete.</p>
 
 </body>
 </html>
