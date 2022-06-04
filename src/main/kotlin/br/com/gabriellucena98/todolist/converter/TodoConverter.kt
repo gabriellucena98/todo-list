@@ -27,4 +27,16 @@ object TodoConverter {
             )
         }
     }
+
+    fun stringToDTO(json: String): TodoDTO {
+        return with(json) {
+            TodoDTO(
+                id = null,
+                name = json,
+                done = false
+            )
+        }
+    }
+
+
 }

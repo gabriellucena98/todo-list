@@ -25,11 +25,8 @@ class TodoController(
     }
 
     @PostMapping
-    fun createTodo(@RequestBody todoDTO: TodoDTO): TodoDTO {
-//        val todo = TodoConverter.toDomain(todoDTO)
-//        return todoService.createTodo(todo).let { TodoConverter.toDTO(it) }
-//        return todoDTO.let { TodoConverter.toDomain(it) }.let { todoService.createTodo(it) }.let { TodoConverter.toDTO(it) }
-        return TodoConverter.toDTO(todoService.createTodo(TodoConverter.toDomain(todoDTO)))
+    fun createTodo(@RequestBody json: String): TodoDTO {
+        return TodoConverter.toDTO(todoService.createTodo(TodoConverter.toDomain(TodoConverter.stringToDTO(json))))
     }
 
     @PutMapping("/{id}")
