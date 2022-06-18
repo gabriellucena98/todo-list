@@ -11,12 +11,14 @@
 </div>
 
 <hr>
+
 <form action="/todo" method="post">
     <label for="id">ID:</label><br>
     <input type="text" id="id" name="id" value=""><br><br>
     <label for="name">ASSIGNMENT:</label><br>
     <input type="string" id="name" name="name" value=""><br><br>
     <input type="submit" value="Add" onclick="pegar()">
+
 </form>
 
 
@@ -36,14 +38,14 @@
         var name_inp = input.value;
 
 
-        var person = {id:"",name:"",done:""}
-        person["id"] = id_inp
+        var person = {name:""}
         person["name"] = name_inp
 
 
         var json = JSON.stringify(person)
+        document.querySelector("#name").value = json
 
-    console.log(json)
+        console.log(json)
 
     }
 
