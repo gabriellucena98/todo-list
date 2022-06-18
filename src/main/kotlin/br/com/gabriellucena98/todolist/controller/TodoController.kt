@@ -25,8 +25,8 @@ class TodoController(
     }
 
     @PostMapping
-    fun createTodo(@RequestBody json: String): TodoDTO {
-        return TodoConverter.toDTO(todoService.createTodo(TodoConverter.toDomain(TodoConverter.stringToDTO(json))))
+    fun createTodo(@RequestBody todo: TodoDTO): TodoDTO {
+        return todoService.createTodo(TodoConverter.toDomain(todo)).let { TodoConverter.toDTO(it) }
     }
 
     @PutMapping("/{id}")
