@@ -1,37 +1,52 @@
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
 
-<h1>Todolist</h1>
+<div>
+    <h1>Todolist</h1>
+</div>
 
-<form action="/todo" method="get" autocomplete="on">
-
-
-    <input type="submit" value="List">
-
-
-
-
-
-        <input type="submit" value="Change">
-
-
-        <input type="submit" value="Delete">
-    </form>
-
+<hr>
 <form action="/todo" method="post">
     <label for="id">ID:</label><br>
     <input type="text" id="id" name="id" value=""><br><br>
     <label for="name">ASSIGNMENT:</label><br>
     <input type="string" id="name" name="name" value=""><br><br>
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" onclick="pegar()">
 </form>
 
-<form action="/todo" method="delete">
-    <label for="UUID">ID:</label><br>
-    <input type="UUID" id="UUID" name="UUID" value=""><br><br>
-    <input type="submit" value="Delete">
-</form>
 
-            <p>ID is only needed to change and delete.</p>
 
+<p>ID is only needed to change and delete.</p>
+
+
+<script>
+
+
+    function pegar(){
+
+
+        var input = document.querySelector("#id");
+        var id_inp = input.value;
+        var input = document.querySelector("#name");
+        var name_inp = input.value;
+
+
+        var person = {id:"",name:"",done:""}
+        person["id"] = id_inp
+        person["name"] = name_inp
+
+
+        var json = JSON.stringify(person)
+
+    console.log(json)
+
+    }
+
+</script>
 </body>
 </html>

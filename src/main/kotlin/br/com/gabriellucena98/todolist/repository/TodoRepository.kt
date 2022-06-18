@@ -11,7 +11,7 @@ class TodoRepository(
     private val namedParameterJdbcTemplate: NamedParameterJdbcTemplate
 ) {
     private val SELECT_ALL_TODOS = """
-        SELECT * FROM todo;
+        SELECT * FROM todo
     """.trimIndent()
     private val DELETE_TODO = """
         DELETE FROM todo WHERE id = :id
