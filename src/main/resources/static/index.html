@@ -16,8 +16,8 @@
     <label for="id">ID:</label><br>
     <input type="text" id="id" name="id" value=""><br><br>
     <label for="name">ASSIGNMENT:</label><br>
-    <input type="string" id="name" name="name" value=""><br><br>
-    <input type="submit" value="Add" onclick="pegar()">
+    <input type="text" id="name" name="name" value=""><br><br>
+    <input type="submit" value="Add">
 
 </form>
 
@@ -26,29 +26,5 @@
 <p>ID is only needed to change and delete.</p>
 
 
-<script>
-
-
-    function pegar(){
-
-
-        var input = document.querySelector("#id");
-        var id_inp = input.value;
-        var input = document.querySelector("#name");
-        var name_inp = input.value;
-
-
-        var person = {name:""}
-        person["name"] = name_inp
-
-
-        var json = JSON.stringify(person)
-        document.querySelector("#name").innerHTML = json
-
-        console.log(json)
-
-    }
-
-</script>
 </body>
 </html>
