@@ -12,12 +12,12 @@
 
 <hr>
 
-<form action="/todo" method="post">
+<form action="/todo">
     <label for="id">ID:</label><br>
     <input type="text" id="id" name="id" value=""><br><br>
     <label for="name">ASSIGNMENT:</label><br>
     <input type="text" id="name" name="name" value=""><br><br>
-    <input type="submit" value="Add" onclick="pegar()">
+    <input type="submit" id="enviar" value="Add">
 
 </form>
 
@@ -29,24 +29,31 @@
 <script>
 
 
-    function pegar(){
 
+
+
+
+
+
+
+        enviar.addEventListener("click", function(event){
 
         var input = document.querySelector("#id");
         var id_inp = input.value;
         var input = document.querySelector("#name");
         var name_inp = input.value;
+        var enviar = document.querySelector("#enviar");
 
 
         var person = {name:""}
         person["name"] = name_inp
 
+            event.preventDefault();
+            var json = JSON.stringify(person)
+            console.log(json)
+        })
 
-        var json = JSON.stringify(person)
 
-        return json
-
-    }
 
 </script>
 </body>
