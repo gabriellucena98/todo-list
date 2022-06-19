@@ -28,16 +28,8 @@
 
 <script>
 
-
-
-
-
-
-
-
-
         enviar.addEventListener("click", function(event){
-
+        event.preventDefault();
         var input = document.querySelector("#id");
         var id_inp = input.value;
         var input = document.querySelector("#name");
@@ -48,12 +40,10 @@
         var person = {name:""}
         person["name"] = name_inp
 
-            event.preventDefault();
+
             var json = JSON.stringify(person)
             console.log(json)
         })
-
-
 
 </script>
 </body>
