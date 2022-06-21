@@ -12,14 +12,14 @@
 
 <hr>
 
-<form action="/todo" method="post">
-    <label for="id">ID:</label><br>
-    <input type="text" id="id" name="id" value=""><br><br>
-    <label for="name">ASSIGNMENT:</label><br>
-    <input type="text" id="name" name="name" value=""><br><br>
-    <input type="submit" id="enviar" value="Add">
 
-</form>
+<label for="id">ID:</label><br>
+<input type="text" id="id" name="id" value=""><br><br>
+<label for="name">ASSIGNMENT:</label><br>
+<input type="text" id="name" name="name" value=""><br><br>
+<input type="submit" id="enviar" onclick="enviar()" value="Add">
+
+
 
 
 
@@ -28,19 +28,21 @@
 
 <script>
 
-        enviar.addEventListener("click", function(event){
-        event.preventDefault();
-        var input = document.querySelector("#id");
-        var id_inp = input.value;
-        var input = document.querySelector("#name");
-        var name_inp = input.value;
-        var enviar = document.querySelector("#enviar");
+    function enviar(){
+        var person = {name: document.getElementById("name").value}
+
+           fetch("https:\", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(person)
+           })
 
 
-        return  var person = { name: document.getElementById('name').value }
-        person["name"] = name_inp
 
-        })
+    }
+
 
 </script>
 </body>
