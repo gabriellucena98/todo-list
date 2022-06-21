@@ -3,6 +3,7 @@ package br.com.gabriellucena98.todolist.controller
 import br.com.gabriellucena98.todolist.converter.TodoConverter
 import br.com.gabriellucena98.todolist.dto.TodoDTO
 import br.com.gabriellucena98.todolist.service.TodoService
+import io.swagger.annotations.ApiResponse
 import java.util.UUID
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -24,6 +25,11 @@ class TodoController(
         return todoService.getAll().map { TodoConverter.toDTO(it) }
     }
 
+    @PostMapping
+    @ApiResponse(code = 200, message = "Adicionado!")
+    fun createTodo(@RequestBody todo: TodoDTO): TodoDTO {
+        return todoService.createTodo(TodoConverter.toDomain(todo)).let { TodoConverter.toDTO(it) }
+    }
 
     @PutMapping("/{id}")
     fun editTodo(
@@ -35,7 +41,7 @@ class TodoController(
 
     @DeleteMapping("/{id}")
     fun deleteTodo(@PathVariable("id") id: UUID) {
-        return todoService.deleteTodo(id)
+        todoService.deleteTodo(id)
 
     }
 }
